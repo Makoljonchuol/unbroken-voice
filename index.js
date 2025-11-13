@@ -21,13 +21,10 @@ themeButton.addEventListener('click', toggleDarkMode);
 let count = 3;
 
 // Function adds a valid participant to the RSVP list
-const addParticipant = (event) => {
-  event.preventDefault();
-  let name = document.getElementById('rsvp-name').value;
-  let state = document.getElementById('rsvp-state').value;
+const addParticipant = (person) => {
   let participantsDiv = document.querySelector('.rsvp-participants');
   let newP = document.createElement('p');
-  newP.textContent = `🎟️ ${name} from ${state} has RSVP'd.`;
+  newP.textContent = `🎟️ ${person.name} from ${person.hometown} has RSVP'd.`;
   participantsDiv.appendChild(newP);
 
   // Update the RSVP count
@@ -58,8 +55,15 @@ const validateForm = (event) => {
   let stateInput = document.getElementById("rsvp-state");
   let emailInput = document.getElementById("rsvp-email");
 
+  // Create person object with form values
+  let person = {
+    name: nameInput.value,
+    hometown: stateInput.value,
+    email: emailInput.value
+  };
+
   // Validate Name: min 2 chars
-  if (nameInput.value.length < 2) {
+  if (person.name.length < 2) {
     containsErrors = true;
     nameInput.classList.add("error");
   } else {
@@ -67,7 +71,7 @@ const validateForm = (event) => {
   }
 
   // Validate State: min 2 chars
-  if (stateInput.value.length < 2) {
+  if (person.hometown.length < 2) {
     containsErrors = true;
     stateInput.classList.add("error");
   } else {
@@ -75,7 +79,7 @@ const validateForm = (event) => {
   }
 
   // Validate Email: min 2 chars and must contain "@"
-  if (emailInput.value.length < 2 || !emailInput.value.includes("@")) {
+  if (person.email.length < 2 || !person.email.includes("@")) {
     containsErrors = true;
     emailInput.classList.add("error");
   } else {
@@ -84,11 +88,88 @@ const validateForm = (event) => {
 
   // Only allow RSVP if ALL fields valid
   if (!containsErrors) {
-    addParticipant(event);
-    // No need to reset here, addParticipant already resets form!
+    addParticipant(person);
+    toggleModal(person);
   }
 };
 
 // Register ONLY the validation handler for RSVP submission
 let rsvpButton = document.getElementById('rsvp-button');
 rsvpButton.addEventListener('click', validateForm);
+
+
+/*** Modal ***
+  
+  Purpose:
+  - Use this starter code to add a pop-up modal to your website.
+
+  When To Modify:
+  - [ ] Project 9 (REQUIRED FEATURE)
+  - [ ] Project 9 (STRETCH FEATURE)
+  - [ ] Any time after
+***/
+
+const toggleModal = (person) => {
+    let modal = document.getElementById('success-modal');
+    
+    // Update modal display to flex
+    modal.style.display = "flex";
+
+    // Update modal text to personalized message
+    let modalText = document.getElementById('modal-text');
+    modalText.textContent = `Thank you for RSVPing, ${person.name}! We can't wait to see you at Unbroken Voices!`;
+
+    // Start image animation with setInterval (only if motion is enabled)
+    let intervalId;
+    if (motionEnabled) {
+        intervalId = setInterval(animateImage, 500);
+    }
+
+    // Set modal timeout to 5 seconds
+    setTimeout(() => {
+        modal.style.display = "none";
+        if (intervalId) {
+            clearInterval(intervalId);
+        }
+    }, 5000);
+};
+
+// Animation variables and animateImage() function
+let rotateFactor = 0;
+let modalImage = document.getElementById('modal-image');
+
+const animateImage = () => {
+    // Toggle rotateFactor between 0 and -10 using ternary operator
+    rotateFactor = rotateFactor === 0 ? -10 : 0;
+    
+    // Apply rotation to the image
+    modalImage.style.transform = `rotate(${rotateFactor}deg)`;
+};
+
+
+/*** Close Modal Button (STRETCH FEATURE) ***/
+let closeModalBtn = document.getElementById('close-modal-btn');
+
+const closeModal = () => {
+    let modal = document.getElementById('success-modal');
+    modal.style.display = "none";
+};
+
+closeModalBtn.addEventListener('click', closeModal);
+
+
+/*** Reduce Motion Feature (STRETCH FEATURE) ***/
+let motionEnabled = true;
+let reduceMotionButton = document.getElementById('reduce-motion-button');
+
+const reduceMotion = () => {
+    motionEnabled = !motionEnabled;
+    
+    if (motionEnabled) {
+        reduceMotionButton.textContent = 'Reduce Motion';
+    } else {
+        reduceMotionButton.textContent = 'Enable Motion';
+    }
+};
+
+reduceMotionButton.addEventListener('click', reduceMotion);

@@ -16,6 +16,7 @@
       <a href="#schedule">Schedule</a>
       <a href="#links">Resources</a>
       <button id="theme-button">Toggle Dark Mode</button>
+      <button id="reduce-motion-button">Reduce Motion</button>
     </nav>
   </header>
   <main class="main-content">
@@ -57,12 +58,12 @@
       <div class="schedule-section">
         <div class="schedule-item">
           <p class="schedule-desc">Use the schedule below to plan your day and find sessions you want to attend.</p>
-          <img src="image/image.png" alt="A child participating in an art workshop" width="400" height="300">
-          <img src="image/image copy.png" alt="Additional photo from the art workshop" width="400" height="300">
+          <img src="image/schedule.png" alt="A child participating in an art workshop" width="400" height="300">
+          <img src="image/kk.jpeg" alt="Additional photo from the art workshop" width="400" height="300">
           <p>A young participant creating art as part of our expression workshop.</p>
         </div>
         <div class="schedule-item">
-          <img src="image/image copy 2.png" alt="Children in a storytelling circle" width="300" height="300">
+          <img src="image/m1r3.jpeg" alt="Children in a storytelling circle" width="300" height="300">
           <p>Children gather to share their stories with visitors and guests.</p>
         </div>
       </div>
@@ -118,6 +119,31 @@
       </form>
     </div>
   </div>
+
+  <!-- success modal
+
+  Purpose:
+  - Modal that appears when a user successfully signs up for the event
+  - Contains a personalized message and image
+
+  When To Modify:
+  - [ ] Project 9 (REQUIRED FEATURE)
+  - [ ] Project 9 (STRETCH FEATURE) 
+  - [ ] Any time after
+  --> 
+
+  <div id="success-modal" class="modal">
+    <div class="modal-container">
+      <div id="modal-item">
+        <p id="modal-text">Thank you for RSVPing to Unbroken Voices!</p>
+        <button id="close-modal-btn" class="close-modal-button">Close</button>
+      </div>
+      <div id="modal-item">
+        <img id="modal-image" src="image/fambooks.jpeg" alt="Celebration image" width="300" height="300">
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <p>&copy; 2025 Unbroken Voices. All rights reserved.</p>
   </footer>
