@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Unbroken Voices</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header class="header">
+    <h1>Unbroken Voices</h1>
+    <nav class="navbar">
+      <a href="#about">About</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#links">Resources</a>
+      <button id="theme-button">Toggle Dark Mode</button>
+    </nav>
+  </header>
+  <main class="main-content">
+    <section>
+      <h3 class="subtitle">Stories of Resilience from Refugee Children</h3>
+      <div class="header-actions">
+        <button>Sign Up</button>
+        <button>Learn More</button>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About the Event</h2>
+      <p>
+        Unbroken Voices is an initiative to share the real stories, strength, and creativity of refugee children in
+        Kenya.
+      </p>
+      <p>
+        Our project aims to shine a light on their challenges and achievements through digital storytelling, and
+        inspires
+        the broader community to support and celebrate their resilience.
+      </p>
+      <p>
+        This event is ideal for students, educators, and anyone interested in supporting youth empowerment and hearing
+        powerful stories of hope.
+      </p>
+    </section>
+    <section>
+      <h2>Featured Video: EmpowerKids Designathon</h2>
+      <div class="video-container">
+        <iframe width="420" height="236" src="https://www.youtube.com/embed/tXBYdIqxDHE"
+          title="EmpowerKids Designathon in Kakuma Refugee Camp, Kenya" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+    <section id="schedule">
+      <h2>Event Schedule</h2>
+      <div class="schedule-section">
+        <div class="schedule-item">
+          <p class="schedule-desc">Use the schedule below to plan your day and find sessions you want to attend.</p>
+          <img src="image/schedule.png" alt="A child participating in an art workshop" width="400" height="300">
+          <img src="image/kk.jpeg" alt="Additional photo from the art workshop" width="400" height="300">
+          <p>A young participant creating art as part of our expression workshop.</p>
+        </div>
+        <div class="schedule-item">
+          <img src="image/m1r3.jpeg" alt="Children in a storytelling circle" width="300" height="300">
+          <p>Children gather to share their stories with visitors and guests.</p>
+        </div>
+      </div>
+    </section>
+    <section id="links">
+      <h2>Helpful Links</h2>
+      <div class="helpful-links">
+        <article>
+          <h3>
+            <a href="https://www.unhcr.org/ke/" target="_blank">UNHCR Kenya</a>
+          </h3>
+          <p>
+            The United Nations Refugee Agency site for Kenya, offering news, resources, and support for refugees and
+            their communities.
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a href="https://refugee-stories.org/" target="_blank">Refugee Stories</a>
+          </h3>
+          <p>
+            Personal accounts and inspiring storytelling from refugees around the world, with a focus on youth and
+            community resilience.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="rsvp">
+    <h2>RSVP</h2>
+    <div class="rsvp-container">
+      <div class="rsvp-para">
+        <p>We'd love for you to join Unbroken Voices! Sign up to attend and support a celebration of strength,
+          creativity, and resilience among refugee children. Your RSVP helps us build a stronger community.</p>
+      </div>
+      <div class="rsvp-participants">
+        <p>🎟️ Lil Momma from Nairobi has RSVP'd.</p>
+        <p>🎟️ Josephine from Kakuma has RSVP'd.</p>
+        <p>🎟️ Malik from Eldoret has RSVP'd.</p>
+        <p id="rsvp-count">⭐ 3 people have RSVP'd to this event!</p>
+      </div>
+    </div>
+    <div class="form-container">
+      <form id="rsvp-form" title="rsvp-form">
+        <label for="rsvp-name">Name:</label>
+        <input type="text" id="rsvp-name" required>
+        <label for="rsvp-state">State:</label>
+        <input type="text" id="rsvp-state" required>
+        <label for="rsvp-email">Email:</label>
+        <input type="email" id="rsvp-email" required>
+        <button id="rsvp-button">Submit RSVP</button>
+      </form>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Unbroken Voices. All rights reserved.</p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+
+</html>
